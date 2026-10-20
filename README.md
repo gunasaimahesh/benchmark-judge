@@ -9,7 +9,7 @@ Benchmark Judge is a local-first project for the **Research, Data & Scientific C
 
 ![Benchmark Judge dashboard preview](docs/benchmark-judge-dashboard.png)
 
-The live deployment is a static Vercel deployment. If Vercel Deployment Protection is enabled, open it while signed in or use the repository and local Docker instructions below.
+The live deployment is a public static Vercel deployment. The project is configured for the Vite build and `dist` output; GitHub push-to-deploy still requires approving the Vercel GitHub Login Connection in the Vercel dashboard.
 
 ## What it does
 
@@ -99,6 +99,8 @@ npm run generate:sample
 ```
 
 The sample story test checks the committed fixture's counts, metrics, disagreements, confusion-matrix rows, and McNemar value.
+
+For the short manual check, use the browser UI to upload `public/template.csv`, then upload `public/broken-template.csv` and confirm the error panel reports the missing `model_b`, duplicate ID, and blank label. Load the sample dataset and download both `benchmark-report.json` and `benchmark-disagreements.csv`.
 
 ## Docker and offline verification
 
