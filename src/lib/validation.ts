@@ -121,12 +121,11 @@ export function validateRows(input: ParsedCsv | string): ValidationResult {
       errors.push(parserErrorMessage(parseError, headers));
     }
 
-    // Row-level validation still runs for other rows. It is useful to report a
-    // blank required value alongside a different row's field-count problem.
-    if (missingColumns.length === 0) {
-      addCellErrors(parsed.records, headers, mismatchRows, errors);
-    }
-  } else if (missingColumns.length === 0) {
+    // Row-level validation still runs for the columns that are present. It is
+    // useful to report a blank value or duplicate ID alongside a missing
+    // required column, without inventing an empty-cell error for that column.
+    addCellErrors(parsed.records, headers, mismatchRows, errors);
+  } else {
     addCellErrors(parsed.records, headers, new Set<number>(), errors);
   }
 
@@ -138,10 +137,8 @@ export function validateRows(input: ParsedCsv | string): ValidationResult {
     );
   }
 
-  if (missingColumns.length === 0) {
-    const duplicateErrors = duplicateIdErrors(parsed.records, headers);
-    errors.push(...duplicateErrors);
-  }
+  const duplicateErrors = duplicateIdErrors(parsed.records, headers);
+  errors.push(...duplicateErrors);
 
   if (errors.length > 0) {
     return { ok: false, errors: capErrors(errors) };
@@ -181,6 +178,7 @@ function addCellErrors(
     if (mismatchRows.has(index)) continue;
 
     for (const column of REQUIRED_COLUMNS) {
+      if (!headers.includes(column)) continue;
       if ((valueAt(record, column) ?? '') === '') {
         errors.push(`Row ${rowNumber(index)} has an empty \`${column}\`.`);
       }

@@ -51,6 +51,22 @@ describe('validateRows', () => {
     });
   });
 
+  it('keeps reporting present-column errors alongside missing columns', () => {
+    const result = validateRows(
+      parseCsv(
+        'id,category,true_label,model_a\n' +
+          'duplicate,work,safe,safe\n' +
+          'duplicate,work,,phishing\n',
+      ),
+    );
+    expect(result.ok).toBe(false);
+    if (result.ok) return;
+    expect(result.errors).toContain('Missing required column: `model_b`. Found columns: `id`, `category`, `true_label`, `model_a` (column names are case-sensitive).');
+    expect(result.errors).toContain('Row 3 has an empty `true_label`.');
+    expect(result.errors).toContain('Duplicate ID `duplicate` appears on rows 2 and 3.');
+    expect(result.errors).not.toContain('Row 2 has an empty `model_b`.');
+  });
+
   it('rejects blank required cells and blank categories but allows blank text', () => {
     const result = validateRows(
       parseCsv(
