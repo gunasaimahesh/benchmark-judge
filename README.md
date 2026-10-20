@@ -5,11 +5,11 @@
 Benchmark Judge is a local-first project for the **Research, Data & Scientific Computing** track of the OmniRush Frontier Buildathon.
 
 **Live demo:** [benchmark-judge.vercel.app](https://benchmark-judge.vercel.app)<br>
-**Demo video:** _To be recorded and added before submission._
+**Demo video:** [2:20 product walkthrough](docs/benchmark-judge-demo.webm)
 
 ![Benchmark Judge dashboard preview](docs/benchmark-judge-dashboard.png)
 
-The live deployment is a public static Vercel deployment. The project is configured for the Vite build and `dist` output; GitHub push-to-deploy still requires approving the Vercel GitHub Login Connection in the Vercel dashboard.
+The live deployment is a public static Vercel deployment. The project is configured for the Vite build and `dist` output, with GitHub push-to-deploy connected to the `main` branch.
 
 ## What it does
 
@@ -101,6 +101,8 @@ npm run generate:sample
 The sample story test checks the committed fixture's counts, metrics, disagreements, confusion-matrix rows, and McNemar value.
 
 For the short manual check, use the browser UI to upload `public/template.csv`, then upload `public/broken-template.csv` and confirm the error panel reports the missing `model_b`, duplicate ID, and blank label. Load the sample dataset and download both `benchmark-report.json` and `benchmark-disagreements.csv`.
+
+The production smoke check has been run against the live URL: the sample story, metric switch, malware evidence filter, row detail dialog, confusion-matrix toggle, both downloads, valid template upload, malformed-upload errors, and refresh-to-empty behavior all passed.
 
 ## Docker and offline verification
 
