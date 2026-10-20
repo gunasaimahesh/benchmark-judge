@@ -8,7 +8,7 @@ Built for the **Research, Data & Scientific Computing** track of the OmniRush Fr
 |---|---|
 | Live demo | [benchmark-judge.vercel.app](https://benchmark-judge.vercel.app) |
 | Source repository | [github.com/gunasaimahesh/benchmark-judge](https://github.com/gunasaimahesh/benchmark-judge) |
-| Demo video | [2:20 product walkthrough](docs/benchmark-judge-demo.webm) |
+| Demo video | [2:20 narrated product walkthrough (MP4)](docs/benchmark-judge-demo.mp4) · [WebM](docs/benchmark-judge-demo.webm) |
 
 ![Benchmark Judge dashboard preview](docs/benchmark-judge-dashboard.png)
 
