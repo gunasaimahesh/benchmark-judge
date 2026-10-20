@@ -1,29 +1,40 @@
 # Benchmark Judge
 
-**Compare classification models beyond one accuracy number.** Upload the same labeled evaluation examples and predictions from two models, then inspect the per-label tradeoffs and the exact rows behind their disagreements.
+**Compare classification models beyond one accuracy number.** Benchmark Judge is a local-first browser app for uploading the same labeled evaluation examples and predictions from two models, then inspecting the per-label tradeoffs and the exact rows behind their disagreements.
 
-Benchmark Judge is a local-first project for the **Research, Data & Scientific Computing** track of the OmniRush Frontier Buildathon.
+Built for the **Research, Data & Scientific Computing** track of the OmniRush Frontier Buildathon.
 
-**Live demo:** [benchmark-judge.vercel.app](https://benchmark-judge.vercel.app)<br>
-**Demo video:** [2:20 product walkthrough](docs/benchmark-judge-demo.webm)
+| Resource | Link |
+|---|---|
+| Live demo | [benchmark-judge.vercel.app](https://benchmark-judge.vercel.app) |
+| Source repository | [github.com/gunasaimahesh/benchmark-judge](https://github.com/gunasaimahesh/benchmark-judge) |
+| Demo video | [2:20 product walkthrough](docs/benchmark-judge-demo.webm) |
 
 ![Benchmark Judge dashboard preview](docs/benchmark-judge-dashboard.png)
 
-The live deployment is a public static Vercel deployment. The project is configured for the Vite build and `dist` output, with GitHub push-to-deploy connected to the `main` branch.
+The live demo is a public static Vercel deployment. It is built with Vite, served from `dist`, and connected to GitHub so pushes to `main` redeploy automatically.
 
 ## What it does
 
-Benchmark Judge answers:
+Benchmark Judge helps answer:
 
 - Which model wins on accuracy, macro-F1, or balanced accuracy?
 - Does the winner change when rare labels matter more?
-- Which labels explain the difference?
+- Which labels explain the difference, with support and true-positive counts?
 - Is the paired accuracy difference distinguishable from chance on this evaluation set?
 - Which exact examples did the models disagree on?
 
-The app runs all analysis in the browser. Uploaded files are not sent to an API or stored on a server.
+The dashboard includes metric comparisons, per-label performance, filter-aware disagreement counts, row-level evidence, shared-axis confusion matrices, optional category slices, and machine-readable exports.
 
-## Try it
+All analysis runs in the browser. Uploaded files are not sent to an API or stored on a server.
+
+## Quick start
+
+### Use the live demo
+
+Open [benchmark-judge.vercel.app](https://benchmark-judge.vercel.app) and click **Try sample dataset**.
+
+### Run locally
 
 ```bash
 npm ci
@@ -40,9 +51,19 @@ Open the local URL printed by Vite and click **Try sample dataset**. The bundled
 
 The sample is synthetic and illustrative. It is not a claim about real email-security performance.
 
+## Main workflow
+
+1. Load the bundled sample or upload a prediction CSV.
+2. Review the overview cards and switch the primary comparison metric. The secondary correct-count line is explicitly labeled **Accuracy** so it is not confused with macro-F1 or balanced accuracy.
+3. Inspect per-label precision, recall, F1, support, and true-positive counts.
+4. Filter disagreements by outcome, true label, category, or search term. Outcome chips recalculate within the active filters, and label options follow the dataset's support order.
+5. Open a row to see the true label, both predictions, outcome, input text, and extra columns.
+6. Compare the shared-axis confusion matrices and optional category slices.
+7. Download the JSON report or disagreement CSV.
+
 ## CSV format
 
-Download the in-app template or prepare a CSV with these required columns:
+Download the [working CSV template](public/template.csv) or prepare a CSV with these required columns:
 
 ```csv
 id,category,true_label,model_a,model_b,text
@@ -61,6 +82,8 @@ row-002,work,phishing,safe,phishing,Verify your password to avoid account suspen
 
 Labels are case-sensitive. Blank required values, blank categories when the column exists, duplicate IDs, malformed rows, files over 10 MB, and files over 100,000 data rows are rejected with row-aware messages. Extra named columns are preserved in the row detail.
 
+The repository also includes a deliberately invalid [validation fixture](public/broken-template.csv) for checking the missing-column, duplicate-ID, and blank-value error paths.
+
 ## Metrics
 
 - **Accuracy:** correct predictions divided by all rows.
@@ -69,17 +92,7 @@ Labels are case-sensitive. Blank required values, blank categories when the colu
 - **Balanced accuracy:** mean recall across ground-truth labels.
 - **McNemar exact test:** a paired exact test for the accuracy difference only. Its p-value describes this evaluation set; it does not guarantee future performance.
 
-The methodology panel in the app explains the formulas, rounding, slice behavior, and limitations.
-
-## Main workflow
-
-1. Upload a prediction CSV or load the sample.
-2. Review the overview cards and switch the primary comparison metric.
-3. Inspect per-label precision, recall, F1, support, and evidence counts.
-4. Filter disagreements by outcome, true label, category, or search term.
-5. Open a row to see the true label, both predictions, input text, and extra columns.
-6. Compare the shared-axis confusion matrices.
-7. Download the JSON report or disagreement CSV.
+When a dataset has only one ground-truth label, the app allows analysis but warns that macro-F1 and balanced accuracy are less informative. The methodology panel explains the formulas, rounding, slice behavior, and limitations.
 
 ## Development
 
@@ -87,9 +100,14 @@ Node 22 is the reference runtime. The version is pinned in `.nvmrc`.
 
 ```bash
 npm ci
-npm run dev
 npm test
 npm run build
+```
+
+Start the development server separately when you want to use the app locally:
+
+```bash
+npm run dev
 ```
 
 Generate the deterministic sample fixture again with:
@@ -100,9 +118,11 @@ npm run generate:sample
 
 The sample story test checks the committed fixture's counts, metrics, disagreements, confusion-matrix rows, and McNemar value.
 
-For the short manual check, use the browser UI to upload `public/template.csv`, then upload `public/broken-template.csv` and confirm the error panel reports the missing `model_b`, duplicate ID, and blank label. Load the sample dataset and download both `benchmark-report.json` and `benchmark-disagreements.csv`.
+The current automated suite has **35 tests across 9 files**, covering CSV parsing and validation, metrics, comparisons, statistics, exports, the deterministic sample story, and disagreement-explorer filtering.
 
-The production smoke check has been run against the live URL: the sample story, metric switch, malware evidence filter, row detail dialog, confusion-matrix toggle, both downloads, valid template upload, malformed-upload errors, and refresh-to-empty behavior all passed.
+For a short manual check, use the browser UI to upload `public/template.csv`, then upload `public/broken-template.csv` and confirm the error panel reports the missing `model_b`, duplicate ID, and blank label. Load the sample dataset, switch metrics, inspect a malware disagreement, toggle the confusion matrix, and download both `benchmark-report.json` and `benchmark-disagreements.csv`.
+
+The production smoke check has been run against the live URL. It passed the sample story, metric switch, clearly labeled accuracy counts, support-ordered label filter, filter-aware malware outcome counts (**All 7; A correct / B wrong 0; B correct / A wrong 6; Both wrong 1**), row detail dialog, confusion-matrix toggle, both downloads, valid template upload, malformed-upload errors, single-label warning, and refresh-to-empty behavior.
 
 ## Docker and offline verification
 
@@ -121,14 +141,15 @@ src/lib/                 CSV, validation, metrics, statistics, exports
 src/components/          Dashboard sections and evidence explorer
 src/fixtures/            Deterministic sample dataset
 scripts/                 Sample data generator
-tests/                   Data-layer and story tests
+tests/                   Data-layer, story, and explorer tests
+docs/                    Dashboard preview and demo video
 benchmark-judge-plan.md  Original project plan
-benchmark-judge-plan-v2.md
+benchmark-judge-plan-v2.md  Refined implementation plan
 ```
 
 ## Limitations and non-goals
 
-The MVP supports exactly two models and single-label classification. It does not train models, run live inference, support regression or multi-label classification, connect to an AI API, or upload data to a backend. Results describe the supplied evaluation set only.
+The MVP supports exactly two models and single-label classification. It does not train models, run live inference, support regression or multi-label classification, connect to an AI API, or upload data to a backend. Results describe the supplied evaluation set only. Category slices can be noisy with small support, and McNemar's test covers the accuracy difference only.
 
 ## Buildathon note
 
@@ -143,4 +164,4 @@ The repository began as one large first commit, so these sessions document the b
 | `ses_eaa83d2f3ffed7eZTQLmalSK4T` — **Omnirush Buildathon Project Comparison** | Compared the three project ideas, wrote and refined the v1/v2 plans, implemented the dashboard, prepared the repository, and handled deployment/readiness work. |
 | `ses_eaa47decaffe5HbK71VAhBHYDg` — **Implement core benchmark engine (@general subagent)** | Implemented the CSV parser and validation, metric engine, McNemar test, deterministic sample generator, exports, and 32 data-layer tests. |
 
-Add the final demo-video URL to the placeholder above after recording. The live URL and repository are ready for the buildathon submission.
+The later evidence-interaction polish added filter-aware disagreement counts, support-ordered label options, the single-label metric caveat, and explicit accuracy labels on the metric cards. The repository and live demo are ready for submission.
