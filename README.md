@@ -8,7 +8,7 @@ Built for the **Research, Data & Scientific Computing** track of the OmniRush Fr
 |---|---|
 | Live demo | [benchmark-judge.vercel.app](https://benchmark-judge.vercel.app) |
 | Source repository | [github.com/gunasaimahesh/benchmark-judge](https://github.com/gunasaimahesh/benchmark-judge) |
-| Demo video | [2:20 narrated product walkthrough (MP4)](docs/benchmark-judge-demo.mp4) · [WebM](docs/benchmark-judge-demo.webm) |
+| Demo video | [2:20 narrated product walkthrough on YouTube](https://youtu.be/Zb8kT_S2vN0) |
 
 ![Benchmark Judge dashboard preview](docs/benchmark-judge-dashboard.png)
 
@@ -142,7 +142,7 @@ src/components/          Dashboard sections and evidence explorer
 src/fixtures/            Deterministic sample dataset
 scripts/                 Sample data generator
 tests/                   Data-layer, story, and explorer tests
-docs/                    Dashboard preview and demo video
+docs/                    Dashboard preview images
 benchmark-judge-plan.md  Original project plan
 benchmark-judge-plan-v2.md  Refined implementation plan
 ```
