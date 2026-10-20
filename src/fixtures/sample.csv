@@ -1,0 +1,201 @@
+id,category,true_label,model_a,model_b,text
+email-001,personal,safe,safe,safe,Notes from design review #137
+email-002,work,safe,safe,safe,Re: Q3 budget draft (rev 174)
+email-003,work,safe,safe,safe,Your order #211 has shipped
+email-004,work,safe,safe,safe,"Agenda for sprint planning, room 248"
+email-005,personal,safe,safe,safe,"Invoice 285 paid, thank you"
+email-006,work,spam,spam,spam,You've won a gift card! Claim code 322
+email-007,personal,safe,safe,safe,"Weekend photos, album 359"
+email-008,personal,safe,safe,safe,Team lunch on Friday? (poll 396)
+email-009,work,spam,spam,spam,"Work from home and earn big, offer 433"
+email-010,work,phishing,phishing,phishing,Your mailbox is full: verify your account (case 470)
+email-011,personal,spam,spam,spam,"Exclusive deal on designer watches, promo 507"
+email-012,personal,safe,safe,phishing,Library reminder: book ref 544 is due
+email-013,work,safe,safe,safe,Notes from design review #581
+email-014,work,phishing,phishing,phishing,Unusual sign-in attempt #618: confirm your password
+email-015,work,phishing,phishing,spam,"Payroll update required: confirm bank details, ref 655"
+email-016,work,safe,safe,safe,Re: Q3 budget draft (rev 692)
+email-017,work,safe,safe,safe,Your order #729 has shipped
+email-018,work,safe,safe,safe,"Agenda for sprint planning, room 766"
+email-019,personal,safe,safe,safe,"Invoice 803 paid, thank you"
+email-020,work,safe,safe,safe,"Weekend photos, album 840"
+email-021,personal,spam,spam,spam,"Miracle weight-loss formula 877, order now"
+email-022,work,spam,spam,spam,"Last chance: free cruise, ticket 914"
+email-023,personal,safe,safe,safe,Team lunch on Friday? (poll 951)
+email-024,work,spam,spam,safe,"Cheap meds shipped free, order #988"
+email-025,work,safe,safe,safe,Library reminder: book ref 125 is due
+email-026,work,spam,spam,spam,You've won a gift card! Claim code 162
+email-027,personal,phishing,phishing,phishing,Package #199 on hold: pay the customs fee
+email-028,personal,safe,safe,safe,Notes from design review #236
+email-029,personal,spam,spam,safe,"Work from home and earn big, offer 273"
+email-030,personal,spam,spam,spam,"Exclusive deal on designer watches, promo 310"
+email-031,work,safe,safe,spam,Re: Q3 budget draft (rev 347)
+email-032,work,phishing,safe,phishing,"IT Helpdesk: password expires today, ticket 384"
+email-033,work,spam,spam,spam,"Miracle weight-loss formula 421, order now"
+email-034,personal,safe,safe,malware,Your order #458 has shipped
+email-035,work,phishing,phishing,phishing,"Your account will be closed, case 495"
+email-036,work,safe,safe,safe,"Agenda for sprint planning, room 532"
+email-037,work,spam,spam,spam,"Last chance: free cruise, ticket 569"
+email-038,personal,safe,safe,safe,"Invoice 606 paid, thank you"
+email-039,personal,safe,safe,safe,"Weekend photos, album 643"
+email-040,personal,phishing,safe,phishing,Your mailbox is full: verify your account (case 680)
+email-041,personal,safe,safe,safe,Team lunch on Friday? (poll 717)
+email-042,personal,safe,safe,safe,Library reminder: book ref 754 is due
+email-043,work,spam,spam,spam,"Cheap meds shipped free, order #791"
+email-044,work,malware,phishing,malware,Scanned document 828 (see attached .zip)
+email-045,personal,safe,safe,safe,Notes from design review #865
+email-046,work,safe,safe,safe,Re: Q3 budget draft (rev 902)
+email-047,personal,safe,safe,safe,Your order #939 has shipped
+email-048,personal,safe,safe,safe,"Agenda for sprint planning, room 976"
+email-049,work,malware,safe,malware,Invoice_113.xlsm: enable macros to view
+email-050,personal,safe,safe,phishing,"Invoice 150 paid, thank you"
+email-051,work,safe,safe,safe,"Weekend photos, album 187"
+email-052,personal,safe,safe,safe,Team lunch on Friday? (poll 224)
+email-053,personal,safe,safe,safe,Library reminder: book ref 261 is due
+email-054,personal,spam,spam,spam,You've won a gift card! Claim code 298
+email-055,work,phishing,safe,phishing,Unusual sign-in attempt #335: confirm your password
+email-056,personal,safe,safe,spam,Notes from design review #372
+email-057,personal,phishing,safe,safe,"Payroll update required: confirm bank details, ref 409"
+email-058,work,safe,safe,safe,Re: Q3 budget draft (rev 446)
+email-059,personal,spam,spam,spam,"Work from home and earn big, offer 483"
+email-060,personal,safe,safe,safe,Your order #520 has shipped
+email-061,personal,safe,safe,safe,"Agenda for sprint planning, room 557"
+email-062,work,spam,spam,spam,"Exclusive deal on designer watches, promo 594"
+email-063,personal,safe,safe,safe,"Invoice 631 paid, thank you"
+email-064,work,spam,spam,spam,"Miracle weight-loss formula 668, order now"
+email-065,work,safe,safe,safe,"Weekend photos, album 705"
+email-066,work,safe,safe,safe,Team lunch on Friday? (poll 742)
+email-067,work,spam,spam,spam,"Last chance: free cruise, ticket 779"
+email-068,work,safe,safe,safe,Library reminder: book ref 816 is due
+email-069,personal,safe,safe,safe,Notes from design review #853
+email-070,personal,phishing,safe,phishing,Package #890 on hold: pay the customs fee
+email-071,work,safe,safe,safe,Re: Q3 budget draft (rev 927)
+email-072,work,safe,safe,safe,Your order #964 has shipped
+email-073,work,spam,spam,spam,"Cheap meds shipped free, order #101"
+email-074,work,spam,spam,phishing,You've won a gift card! Claim code 138
+email-075,work,spam,spam,spam,"Work from home and earn big, offer 175"
+email-076,personal,spam,spam,spam,"Exclusive deal on designer watches, promo 212"
+email-077,work,malware,safe,malware,Voice message 249.wav.exe
+email-078,work,safe,safe,safe,"Agenda for sprint planning, room 286"
+email-079,work,safe,safe,safe,"Invoice 323 paid, thank you"
+email-080,work,spam,spam,spam,"Miracle weight-loss formula 360, order now"
+email-081,work,safe,safe,safe,"Weekend photos, album 397"
+email-082,personal,safe,safe,safe,Team lunch on Friday? (poll 434)
+email-083,work,phishing,spam,phishing,"IT Helpdesk: password expires today, ticket 471"
+email-084,work,safe,safe,safe,Library reminder: book ref 508 is due
+email-085,work,phishing,safe,spam,"Your account will be closed, case 545"
+email-086,work,spam,spam,safe,"Last chance: free cruise, ticket 582"
+email-087,work,safe,safe,safe,Notes from design review #619
+email-088,work,safe,safe,safe,Re: Q3 budget draft (rev 656)
+email-089,work,malware,safe,phishing,Updated contract_693.pdf.exe
+email-090,work,safe,safe,safe,Your order #730 has shipped
+email-091,work,safe,safe,safe,"Agenda for sprint planning, room 767"
+email-092,work,malware,safe,safe,Shipping label 804: open the attached file
+email-093,work,safe,safe,spam,"Invoice 841 paid, thank you"
+email-094,personal,malware,malware,malware,Scanned document 878 (see attached .zip)
+email-095,work,spam,spam,spam,"Cheap meds shipped free, order #915"
+email-096,work,spam,spam,spam,You've won a gift card! Claim code 952
+email-097,personal,safe,safe,safe,"Weekend photos, album 989"
+email-098,work,safe,safe,safe,Team lunch on Friday? (poll 126)
+email-099,personal,safe,safe,safe,Library reminder: book ref 163 is due
+email-100,personal,safe,safe,spam,Notes from design review #200
+email-101,work,spam,spam,safe,"Work from home and earn big, offer 237"
+email-102,personal,spam,spam,spam,"Exclusive deal on designer watches, promo 274"
+email-103,work,safe,safe,malware,Re: Q3 budget draft (rev 311)
+email-104,personal,spam,spam,spam,"Miracle weight-loss formula 348, order now"
+email-105,work,safe,safe,safe,Your order #385 has shipped
+email-106,personal,safe,safe,safe,"Agenda for sprint planning, room 422"
+email-107,work,spam,spam,spam,"Last chance: free cruise, ticket 459"
+email-108,personal,spam,spam,safe,"Cheap meds shipped free, order #496"
+email-109,personal,spam,spam,spam,You've won a gift card! Claim code 533
+email-110,work,safe,safe,safe,"Invoice 570 paid, thank you"
+email-111,personal,safe,safe,safe,"Weekend photos, album 607"
+email-112,work,safe,safe,safe,Team lunch on Friday? (poll 644)
+email-113,personal,spam,spam,spam,"Work from home and earn big, offer 681"
+email-114,personal,safe,safe,phishing,Library reminder: book ref 718 is due
+email-115,personal,spam,spam,spam,"Exclusive deal on designer watches, promo 755"
+email-116,work,spam,spam,spam,"Miracle weight-loss formula 792, order now"
+email-117,work,spam,spam,spam,"Last chance: free cruise, ticket 829"
+email-118,work,malware,spam,malware,Invoice_866.xlsm: enable macros to view
+email-119,work,safe,spam,safe,Notes from design review #903
+email-120,work,phishing,phishing,phishing,Your mailbox is full: verify your account (case 940)
+email-121,work,phishing,safe,phishing,Unusual sign-in attempt #977: confirm your password
+email-122,work,safe,safe,safe,Re: Q3 budget draft (rev 114)
+email-123,work,safe,safe,safe,Your order #151 has shipped
+email-124,work,spam,spam,spam,"Cheap meds shipped free, order #188"
+email-125,personal,phishing,phishing,phishing,"Payroll update required: confirm bank details, ref 225"
+email-126,work,phishing,safe,safe,Package #262 on hold: pay the customs fee
+email-127,work,phishing,spam,phishing,"IT Helpdesk: password expires today, ticket 299"
+email-128,work,spam,spam,spam,You've won a gift card! Claim code 336
+email-129,personal,spam,spam,spam,"Work from home and earn big, offer 373"
+email-130,work,safe,safe,safe,"Agenda for sprint planning, room 410"
+email-131,personal,malware,safe,malware,Voice message 447.wav.exe
+email-132,personal,malware,safe,malware,Updated contract_484.pdf.exe
+email-133,personal,spam,spam,spam,"Exclusive deal on designer watches, promo 521"
+email-134,work,spam,spam,spam,"Miracle weight-loss formula 558, order now"
+email-135,work,spam,spam,phishing,"Last chance: free cruise, ticket 595"
+email-136,work,safe,safe,safe,"Invoice 632 paid, thank you"
+email-137,work,safe,safe,spam,"Weekend photos, album 669"
+email-138,work,safe,safe,safe,Team lunch on Friday? (poll 706)
+email-139,work,spam,spam,spam,"Cheap meds shipped free, order #743"
+email-140,work,safe,safe,phishing,Library reminder: book ref 780 is due
+email-141,work,spam,spam,spam,You've won a gift card! Claim code 817
+email-142,work,safe,safe,safe,Notes from design review #854
+email-143,work,safe,safe,safe,Re: Q3 budget draft (rev 891)
+email-144,work,safe,safe,safe,Your order #928 has shipped
+email-145,work,safe,safe,phishing,"Agenda for sprint planning, room 965"
+email-146,work,safe,safe,phishing,"Invoice 102 paid, thank you"
+email-147,personal,safe,safe,safe,"Weekend photos, album 139"
+email-148,work,safe,safe,safe,Team lunch on Friday? (poll 176)
+email-149,personal,spam,spam,spam,"Work from home and earn big, offer 213"
+email-150,work,safe,safe,safe,Library reminder: book ref 250 is due
+email-151,personal,safe,safe,safe,Notes from design review #287
+email-152,work,safe,safe,safe,Re: Q3 budget draft (rev 324)
+email-153,personal,safe,safe,safe,Your order #361 has shipped
+email-154,work,safe,safe,spam,"Agenda for sprint planning, room 398"
+email-155,work,spam,spam,spam,"Exclusive deal on designer watches, promo 435"
+email-156,work,malware,malware,malware,Shipping label 472: open the attached file
+email-157,work,safe,safe,safe,"Invoice 509 paid, thank you"
+email-158,work,safe,safe,safe,"Weekend photos, album 546"
+email-159,work,safe,safe,safe,Team lunch on Friday? (poll 583)
+email-160,personal,safe,safe,safe,Library reminder: book ref 620 is due
+email-161,personal,safe,safe,safe,Notes from design review #657
+email-162,work,spam,safe,spam,"Miracle weight-loss formula 694, order now"
+email-163,work,safe,safe,safe,Re: Q3 budget draft (rev 731)
+email-164,work,phishing,safe,phishing,"Your account will be closed, case 768"
+email-165,personal,safe,safe,safe,Your order #805 has shipped
+email-166,work,safe,safe,safe,"Agenda for sprint planning, room 842"
+email-167,personal,spam,spam,phishing,"Last chance: free cruise, ticket 879"
+email-168,personal,spam,spam,spam,"Cheap meds shipped free, order #916"
+email-169,work,spam,spam,spam,You've won a gift card! Claim code 953
+email-170,work,safe,safe,safe,"Invoice 990 paid, thank you"
+email-171,work,spam,safe,safe,"Work from home and earn big, offer 127"
+email-172,personal,phishing,phishing,phishing,Your mailbox is full: verify your account (case 164)
+email-173,personal,spam,spam,spam,"Exclusive deal on designer watches, promo 201"
+email-174,work,phishing,phishing,phishing,Unusual sign-in attempt #238: confirm your password
+email-175,personal,spam,spam,spam,"Miracle weight-loss formula 275, order now"
+email-176,work,safe,safe,safe,"Weekend photos, album 312"
+email-177,work,safe,safe,safe,Team lunch on Friday? (poll 349)
+email-178,personal,safe,safe,safe,Library reminder: book ref 386 is due
+email-179,personal,phishing,safe,spam,"Payroll update required: confirm bank details, ref 423"
+email-180,personal,phishing,safe,phishing,Package #460 on hold: pay the customs fee
+email-181,work,spam,spam,spam,"Last chance: free cruise, ticket 497"
+email-182,work,safe,safe,safe,Notes from design review #534
+email-183,work,safe,safe,safe,Re: Q3 budget draft (rev 571)
+email-184,personal,safe,safe,safe,Your order #608 has shipped
+email-185,personal,safe,safe,safe,"Agenda for sprint planning, room 645"
+email-186,work,safe,safe,safe,"Invoice 682 paid, thank you"
+email-187,personal,safe,safe,safe,"Weekend photos, album 719"
+email-188,work,spam,spam,spam,"Cheap meds shipped free, order #756"
+email-189,personal,phishing,spam,phishing,"IT Helpdesk: password expires today, ticket 793"
+email-190,personal,spam,spam,spam,You've won a gift card! Claim code 830
+email-191,work,phishing,safe,phishing,"Your account will be closed, case 867"
+email-192,work,safe,safe,safe,Team lunch on Friday? (poll 904)
+email-193,work,safe,safe,safe,Library reminder: book ref 941 is due
+email-194,personal,safe,safe,safe,Notes from design review #978
+email-195,work,safe,spam,spam,Re: Q3 budget draft (rev 115)
+email-196,personal,safe,safe,safe,Your order #152 has shipped
+email-197,work,safe,safe,phishing,"Agenda for sprint planning, room 189"
+email-198,personal,phishing,phishing,phishing,Your mailbox is full: verify your account (case 226)
+email-199,work,safe,safe,safe,"Invoice 263 paid, thank you"
+email-200,work,safe,safe,safe,"Weekend photos, album 300"

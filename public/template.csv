@@ -1,0 +1,5 @@
+id,category,true_label,model_a,model_b,text
+row-001,work,safe,safe,safe,Agenda for Monday's planning meeting
+row-002,work,phishing,safe,phishing,Verify your password to avoid account suspension
+row-003,personal,spam,spam,safe,"You've won a free cruise, claim today"
+row-004,personal,malware,safe,malware,invoice_2231.zip - open today
