@@ -175,11 +175,11 @@ export default function App() {
         <div className="dashboard">
           <DatasetSummary rows={analysis.rows.length} labels={analysis.labelSet.groundTruth.length} categories={analysis.slices.length} disagreements={analysis.disagreements.length} filename={dataset.filename} columns={analysis.columns} />
 
-          <Overview metric={primaryMetric} onMetricChange={setPrimaryMetric} metricsA={analysis.metricsA} metricsB={analysis.metricsB} comparisons={analysis.comparisons} mcnemar={analysis.mcnemar} />
+          <Overview metric={primaryMetric} onMetricChange={setPrimaryMetric} metricsA={analysis.metricsA} metricsB={analysis.metricsB} comparisons={analysis.comparisons} mcnemar={analysis.mcnemar} groundTruthLabelCount={analysis.labelSet.groundTruth.length} />
 
           <PerLabelTable labelsA={analysis.metricsA.perLabel} labelsB={analysis.metricsB.perLabel} metric={primaryMetric} disagreementsForLabel={disagreementCountForLabel} onShowDisagreements={showLabelEvidence} />
 
-          <DisagreementExplorer disagreements={analysis.disagreements} columns={analysis.columns} labelFilter={labelFilter} onLabelFilterChange={setLabelFilter} explorerRef={explorerRef} />
+          <DisagreementExplorer disagreements={analysis.disagreements} columns={analysis.columns} labelOrder={analysis.labelSet.groundTruth} labelFilter={labelFilter} onLabelFilterChange={setLabelFilter} explorerRef={explorerRef} />
 
           <ConfusionMatrixView matrices={analysis.confusionMatrices} model={matrixModel} onModelChange={setMatrixModel} />
 

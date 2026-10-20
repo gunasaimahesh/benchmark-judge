@@ -10,6 +10,7 @@ type OverviewProps = {
   metricsB: ModelMetrics;
   comparisons: Record<MetricName, Comparison>;
   mcnemar: McNemarResult;
+  groundTruthLabelCount: number;
 };
 
 const metricOptions: Array<{ value: MetricName; label: string }> = [
@@ -35,12 +36,12 @@ function MetricCard({ model, metrics, primary }: { model: 'A' | 'B'; metrics: Mo
       </div>
       <strong>{formatPercent(metrics[primary])}</strong>
       <span className="metric-card-label">{metricLabel(primary)}</span>
-      <span className="metric-card-count">{metrics.correct.toLocaleString()} / {metrics.total.toLocaleString()} correct</span>
+      <span className="metric-card-count">Accuracy · {metrics.correct.toLocaleString()} / {metrics.total.toLocaleString()} correct</span>
     </article>
   );
 }
 
-export default function Overview({ metric, onMetricChange, metricsA, metricsB, comparisons, mcnemar }: OverviewProps) {
+export default function Overview({ metric, onMetricChange, metricsA, metricsB, comparisons, mcnemar, groundTruthLabelCount }: OverviewProps) {
   const selected = comparisons[metric];
   const lead = selected.winner === 'tie' ? null : Math.abs(selected.difference);
 
@@ -91,6 +92,12 @@ export default function Overview({ metric, onMetricChange, metricsA, metricsB, c
         <span className="callout-icon" aria-hidden="true">i</span>
         <p>{describeMetricAgreement(metricsA, metricsB)}</p>
       </div>
+
+      {groundTruthLabelCount === 1 && (
+        <div className="state-note" role="note">
+          <strong>Single-label dataset.</strong> Macro-F1 and balanced accuracy are less informative when only one ground-truth label is present.
+        </div>
+      )}
 
       <div className="table-wrap">
         <table className="data-table comparison-table">

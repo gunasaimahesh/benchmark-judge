@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useRef, useState, type RefObject } from 'react';
+import { countDisagreementOutcomes, filterDisagreements, orderedDisagreementLabels, type OutcomeFilter } from '../lib/explorer';
 import type { DatasetColumns, Disagreement, DisagreementOutcome } from '../types/benchmark';
-
-type OutcomeFilter = 'ALL' | DisagreementOutcome;
 
 type DisagreementExplorerProps = {
   disagreements: Disagreement[];
   columns: DatasetColumns;
+  labelOrder: string[];
   labelFilter: string;
   onLabelFilterChange: (label: string) => void;
   explorerRef?: RefObject<HTMLElement | null>;
@@ -35,7 +35,7 @@ function shortText(value: string | null): string {
   return value.length > 62 ? `${value.slice(0, 59)}…` : value;
 }
 
-export default function DisagreementExplorer({ disagreements, columns, labelFilter, onLabelFilterChange, explorerRef }: DisagreementExplorerProps) {
+export default function DisagreementExplorer({ disagreements, columns, labelOrder, labelFilter, onLabelFilterChange, explorerRef }: DisagreementExplorerProps) {
   const [outcomeFilter, setOutcomeFilter] = useState<OutcomeFilter>('ALL');
   const [categoryFilter, setCategoryFilter] = useState('ALL');
   const [search, setSearch] = useState('');
@@ -43,26 +43,25 @@ export default function DisagreementExplorer({ disagreements, columns, labelFilt
   const [selectedRow, setSelectedRow] = useState<Disagreement | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const labels = useMemo(() => [...new Set(disagreements.map((row) => row.trueLabel))].sort(), [disagreements]);
+  const labels = useMemo(() => orderedDisagreementLabels(disagreements, labelOrder), [disagreements, labelOrder]);
   const categories = useMemo(() => [...new Set(disagreements.map((row) => row.category).filter((value): value is string => value !== null))].sort(), [disagreements]);
 
-  const counts: Record<OutcomeFilter, number> = {
-    ALL: disagreements.length,
-    A_CORRECT_B_WRONG: disagreements.filter((row) => row.outcome === 'A_CORRECT_B_WRONG').length,
-    B_CORRECT_A_WRONG: disagreements.filter((row) => row.outcome === 'B_CORRECT_A_WRONG').length,
-    BOTH_WRONG: disagreements.filter((row) => row.outcome === 'BOTH_WRONG').length,
-  };
-
-  const filteredRows = useMemo(() => {
-    const term = search.trim().toLowerCase();
-    return disagreements.filter((row) => {
-      if (outcomeFilter !== 'ALL' && row.outcome !== outcomeFilter) return false;
-      if (labelFilter !== 'ALL' && row.trueLabel !== labelFilter) return false;
-      if (categoryFilter !== 'ALL' && row.category !== categoryFilter) return false;
-      if (!term) return true;
-      return [row.id, row.trueLabel, row.modelA, row.modelB, row.text ?? ''].some((value) => value.toLowerCase().includes(term));
-    });
-  }, [categoryFilter, disagreements, labelFilter, outcomeFilter, search]);
+  const filteredRowsWithoutOutcome = useMemo(
+    () => filterDisagreements(disagreements, {
+      outcomeFilter: 'ALL',
+      labelFilter,
+      categoryFilter,
+      search,
+    }),
+    [categoryFilter, disagreements, labelFilter, search],
+  );
+  const counts = useMemo(() => countDisagreementOutcomes(filteredRowsWithoutOutcome), [filteredRowsWithoutOutcome]);
+  const filteredRows = useMemo(
+    () => outcomeFilter === 'ALL'
+      ? filteredRowsWithoutOutcome
+      : filteredRowsWithoutOutcome.filter((row) => row.outcome === outcomeFilter),
+    [filteredRowsWithoutOutcome, outcomeFilter],
+  );
 
   useEffect(() => { setPage(1); }, [categoryFilter, labelFilter, outcomeFilter, search]);
   useEffect(() => { if (page > Math.max(1, Math.ceil(filteredRows.length / PAGE_SIZE))) setPage(1); }, [filteredRows.length, page]);
