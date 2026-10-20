@@ -4,6 +4,13 @@
 
 Benchmark Judge is a local-first project for the **Research, Data & Scientific Computing** track of the OmniRush Frontier Buildathon.
 
+**Live demo:** [benchmark-judge.vercel.app](https://benchmark-judge.vercel.app)<br>
+**Demo video:** _To be recorded and added before submission._
+
+![Benchmark Judge dashboard preview](docs/benchmark-judge-dashboard.png)
+
+The live deployment is a static Vercel deployment. If Vercel Deployment Protection is enabled, open it while signed in or use the repository and local Docker instructions below.
+
 ## What it does
 
 Benchmark Judge answers:
@@ -121,4 +128,15 @@ The MVP supports exactly two models and single-label classification. It does not
 
 ## Buildathon note
 
-This project was built in OmniRush for the Research, Data & Scientific Computing track. Add the final demo video, live URL if deployed, and OmniRush session list when submitting.
+This project was built in OmniRush for the Research, Data & Scientific Computing track.
+
+### OmniRush session trail
+
+The repository began as one large first commit, so these sessions document the build progression:
+
+| Session | Role in the project |
+|---|---|
+| `ses_eaa83d2f3ffed7eZTQLmalSK4T` — **Omnirush Buildathon Project Comparison** | Compared the three project ideas, wrote and refined the v1/v2 plans, implemented the dashboard, prepared the repository, and handled deployment/readiness work. |
+| `ses_eaa47decaffe5HbK71VAhBHYDg` — **Implement core benchmark engine (@general subagent)** | Implemented the CSV parser and validation, metric engine, McNemar test, deterministic sample generator, exports, and 32 data-layer tests. |
+
+Add the final demo-video URL to the placeholder above after recording. The live URL and repository are ready for the buildathon submission.
